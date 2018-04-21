@@ -56,6 +56,7 @@ next_keys = ("s", "S")
 prev_keys = ("p", "P")
 quit_keys = ("q", "Q")
 all_keys = next_keys + prev_keys + quit_keys
+dirname = "torrents/"
 if (os.name != 'nt'):
     _, columns = os.popen('stty size', 'r').read().split()
 else:
@@ -300,7 +301,7 @@ def do_search(search_input, chunks_size):
                     # La modifica permette di stampare il nome del file in download e non solo il numero
                     print(dloading_str.format(idx + 1, len(dl_list), fname))
                     
-                    with open(fname, "wb") as outfile:
+                    with open(dirname + fname, "wb") as outfile:
                         outfile.write(result.content)
                     wait_needed = True
 
